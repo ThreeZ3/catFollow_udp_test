@@ -19,7 +19,7 @@ class _MyHomePageState extends State<MyHomePage> {
   late final RawDatagramSocket udpSocket;
   late final StreamSubscription subscription;
   List<String> dataList = [];
-  List<String> commandList = [
+  final List<String> commandList = const [
     "AT+TEST",
     "AT+GETLINK",
     'AT+GMR?',
