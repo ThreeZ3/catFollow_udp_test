@@ -3,7 +3,7 @@ import 'dart:io';
 
 class Api {
   static var ip = "192.168.3.100";
-  static int tcpPort = 8888;
+  static int tcpPort = 8080;
 }
 
 class SocketManage {
@@ -12,8 +12,8 @@ class SocketManage {
   // 建立连接
   static void connectSocket() async {
     await Socket.connect(
-      Api.ip,
-      Api.tcpPort,
+      "192.168.43.115",
+      8080,
       timeout: const Duration(seconds: 5),
     ).then((Socket socket) {
       _socket = socket;
