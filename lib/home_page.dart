@@ -4,7 +4,6 @@ import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
-import 'package:tcp_udp_demo/tcp_socket.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage(
@@ -367,10 +366,9 @@ class _MyHomePageState extends State<MyHomePage> {
                       children: [
                         PopupMenuButton<String>(
                           onSelected: (v) {
-                            // setState(() {
-                            //   commandC.text = v.trim();
-                            // });
-                            SocketManage.connectSocket();
+                            setState(() {
+                              commandC.text = v.trim();
+                            });
                           },
                           child: Container(
                               padding: const EdgeInsets.all(8),
