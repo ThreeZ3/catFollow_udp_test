@@ -103,7 +103,7 @@ class _MyHomePageState extends State<MyHomePage> {
         setState(() {
           receivedHost = dg.address.address;
           receivedPort = dg.port.toString();
-        // });
+        });
         if (!receivedData.contains("AT") || receivedData.length > 100) {
           // 包含 "AT" 是我们的指令，长度大于100视为图片数据
           setState(() {
