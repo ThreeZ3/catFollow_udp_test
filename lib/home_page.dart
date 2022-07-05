@@ -35,14 +35,17 @@ class _MyHomePageState extends State<MyHomePage> {
     "AT+FR",
     "AT+MAC?",
     "AT+BATTERY?",
-    "AT+BEEP=ON",
-    "AT+BEEP=OFF",
+    // "AT+BEEP=ON",
+    "{\"beep\":\"on\"}",
+    "{\"beep\":\"off\"}",
+    // "AT+BEEP=OFF",
     "AT+UPDATEMODE=0,5",
     "AT+GPSLOCATION=ON",
     "AT+GPSLOCATION=OFF",
     "AT+WIFILOCATION=ON",
     "AT+WIFILOCATION=OFF",
-    "AT+TAKINGPIC=VGA,63,0,2",
+    // "AT+TAKINGPIC=VGA,63,0,2",
+    "{\"takingpic\":\"AT+TAKINGPIC=VGA,20,2,2\"}",
     "AT+SETWIFI=SinovoDev,ZYG13632808272.",
     "AT+SETWIFI=SinovoGW_R,enmvxcte",
     "AT+HOSTPOT=phone,123456",
@@ -100,7 +103,7 @@ class _MyHomePageState extends State<MyHomePage> {
         setState(() {
           receivedHost = dg.address.address;
           receivedPort = dg.port.toString();
-        });
+        // });
         if (!receivedData.contains("AT") || receivedData.length > 100) {
           // 包含 "AT" 是我们的指令，长度大于100视为图片数据
           setState(() {
