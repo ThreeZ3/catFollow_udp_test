@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:flutter/foundation.dart';
+
 class Api {
   static var ip = "192.168.3.100";
   static int tcpPort = 8080;
@@ -20,7 +22,9 @@ class SocketManage {
       _socket.listen(onData,
           onError: onError, onDone: onDone, cancelOnError: false); // 订阅流
     }).catchError((e) {
-      print("Unable to connect: $e");
+      if (kDebugMode) {
+        print("Unable to connect: $e");
+      }
       connectSocket(); // 连接超时，重新建立连接
     });
   }
@@ -28,22 +32,30 @@ class SocketManage {
   // 收到消息回调
   static void onData(event) {
     String str = utf8.decode(event);
-    print("---onData---$str");
+    if (kDebugMode) {
+      print("---onData---$str");
+    }
   }
 
   // 收到错误回调
   static void onError(err) {
-    print("---onError---");
+    if (kDebugMode) {
+      print("---onError---");
+    }
   }
 
   // 断开回调
   static void onDone() {
-    Future.delayed(Duration(milliseconds: 2000), () {
+    Future.delayed(const Duration(milliseconds: 2000), () {
       connectSocket(); // 重新建立连接
     });
 
-    print("---onDone---");
+    if (kDebugMode) {
+      print("---onDone---");
+    }
   }
+
+  //
 
   // 发数据
   static void writeData(Object object) {
